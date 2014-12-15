@@ -15,12 +15,14 @@ form(action="/users/new", method="POST")
 
 	input(type="submit")
 
-ul
-each user in users
-	li
-		h2
-			= user.email
-		p
-			= user.phone
-		p
-			= user.address
+
+//
+	ul
+	each user in users
+		li
+			h2
+				= user.email
+			p
+				= user.phone
+			p
+				= user.address
