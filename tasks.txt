@@ -1,18 +1,18 @@
 Routes
 	Pages (index.js):
 		_ Homepage: GET '/'
-			+ logged in      // Page of list of items
-			+ not logged in  // Page with the big button
+			+ logged in      	// Page of list of items
+			+ not logged in  	// Page with the big button
 		_ Signin: 
-			GET '/signin'  // Get sign in page
-			POST '/signin' // Post email and password (hashed) to sign in
+			GET '/signin'  		// Get sign in page
+			POST '/signin' 		// Post email and password (hashed) to sign in
 		
 	Users (users.js):
 		_ Signup: 
-			GET '/users/new'  // Get sign up page 
-			POST '/users/new' // Post user information to sign up
+			GET '/users/new'  					// Get sign up page
+			POST '/users/new' 					// Post user information to sign up
 		_ Users information:
-			GET 	'/users/:id'				// get information of user
+			GET 	'/users/:id'				// get information of an user
 			GET 	'/users/:id/owned_items'	// get information of all owned items of the user
 			GET 	'/users/:id/trading_items'	// get information of all trading items
 			DELETE  '/users/:id'				// sign out
@@ -28,22 +28,22 @@ Routes
 
 Controllers:
 	Index Controllers (index_controller.js):
-		_ index()  			: get index page
-		_ signin() 			: get signin page
+		_ index()  			// get index page
+		_ signin() 			// get signin page
 	Users Controllers (users_controller.js):
-		_ new()  			: get sign up page
-		_ create()  		: add a new user to the database
-		_ show()			: get information of an user
-		_ showOwnedItems	: get all owned items of the user
-		_ showTradingItems	: get all trading items of the user
+		_ new()  			// get sign up page
+		_ create()  		// add a new user to the database
+		_ show()			// get information of an user
+		_ showOwnedItems	// get all owned items of the user
+		_ showTradingItems	// get all trading items of the user
 	Items Controllers (items_controller.js):
-		_ new()				: get a form for adding a new item
-		_ create()			: add a new item
-		_ destroy()			: remove an item
-		_ index()			: get all items
-		_ showCategories()	: get all categories
-		_ show()			: get one item
-		_ showByCategory()	: get all items of a category
+		_ new()				// get a form for adding a new item
+		_ create()			// add a new item
+		_ destroy()			// remove an item
+		_ index()			// get all items
+		_ showCategories()	// get all categories
+		_ show()			// get one item
+		_ showByCategory()	// get all items of a category
 
 !! Implement session of users
 
