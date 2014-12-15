@@ -19,12 +19,12 @@ Routes
 			
 	Items (items.js):
 		_ Add an item: 
-			GET  '/items/new' 
-			POST '/items/new'
+			GET		'/items/new'
+			POST	'/items/new'
 		_ Work with an item: 
-			GET    '/items/:id' 			// get one item
-			GET    '/items/categories/:id'	// get all items in the category with id :id
-			DELETE '/items/:id'				// delete an item
+			GET		'/items/:id' 			// get one item
+			GET    	'/items/categories/:id'	// get all items in a category
+			DELETE 	'/items/:id'			// delete an item
 
 Controllers:
 	Index Controllers (index_controller.js):
@@ -46,4 +46,6 @@ Controllers:
 		_ showByCategory()	// get all items of a category
 
 !! Implement session of users
+!! Client-side
+!! Style
 
