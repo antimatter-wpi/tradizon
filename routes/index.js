@@ -18,4 +18,9 @@ router.get('/signin', sessions_controller.new);
  */
 router.post('/signin', sessions_controller.create);
 
+/*
+ * DELETE sign a user out
+ */
+router.delete('/signout', sessions_controller.destroy);
+
 module.exports = router;
