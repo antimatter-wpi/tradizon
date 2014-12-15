@@ -1,8 +1,8 @@
 Routes
 	Pages (index.js):
 		_ Homepage: GET '/'
-			+ logged in      --> Page of list of items
-			+ not logged in  --> Page with the big button
+			+ logged in      // Page of list of items
+			+ not logged in  // Page with the big button
 		_ Signin: 
 			GET '/signin'  // Get sign in page
 			POST '/signin' // Post email and password (hashed) to sign in
@@ -12,19 +12,19 @@ Routes
 			GET '/users/new'  // Get sign up page 
 			POST '/users/new' // Post user information to sign up
 		_ Users information:
-			GET 	'/users/:id'				: get information of user
-			GET 	'/users/:id/owned_items'	: get information of all owned items of the user
-			GET 	'/users/:id/trading_items'	: get information of all trading items
-			DELETE  '/users/:id'				: sign out
+			GET 	'/users/:id'				// get information of user
+			GET 	'/users/:id/owned_items'	// get information of all owned items of the user
+			GET 	'/users/:id/trading_items'	// get information of all trading items
+			DELETE  '/users/:id'				// sign out
 			
 	Items (items.js):
 		_ Add an item: 
 			GET  '/items/new' 
 			POST '/items/new'
 		_ Work with an item: 
-			GET    '/items/:id' 			: get one item
-			GET    '/items/categories/:id'	: get all items in the category with id :id
-			DELETE '/items/:id'				: delete an item 
+			GET    '/items/:id' 			// get one item
+			GET    '/items/categories/:id'	// get all items in the category with id :id
+			DELETE '/items/:id'				// delete an item
 
 Controllers:
 	Index Controllers (index_controller.js):
@@ -44,4 +44,6 @@ Controllers:
 		_ showCategories()	: get all categories
 		_ show()			: get one item
 		_ showByCategory()	: get all items of a category
+
+!! Implement session of users
 
