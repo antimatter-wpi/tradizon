@@ -3,12 +3,12 @@ var router = express.Router();
 var index_controller = require('../controllers/index_controller.js');
 
 /*
- * GET home page.
+ * GET home page
  */
 router.get('/', index_controller.index);
 
 /*
- * GET sign in page.
+ * GET sign in page
  */
 router.get('/signin', index_controller.signin);
 
