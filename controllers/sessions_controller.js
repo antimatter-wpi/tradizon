@@ -13,21 +13,24 @@ exports.new = function(req, res) {
  * Creates a session and logs a user in
  */
 exports.create = function(req, res) {
+	var userEmail = req.param('email').toLowerCase();
+	var userPassword = req.param('password');
+
 	models.User.find({ 
 		where: { 
-			email: req.param('email')
+			email: userEmail
 		} 
-	}).then(function(user) {
-		console.log(req.param('password'));
-		shasum.update(req.param('password'));
-		var userTypedInPassword = shasum.digest('base64');
-		console.log(user);
-		console.log("digest password from user " + userTypedInPassword);
-		// console.log("digest password on database " + user.password_digest);
+	})
+	.then(function(user) {
+		// Hash the typed in password from user
+		shasum.update(userPassword);
+		var hashedUserTypedInPassword = shasum.digest('base64');
+
 		if (user && userTypedInPassword == user.password_digest) {
-			console.log("EMAIL OF LOGGED IN USER" + user.email);
+			// Do something after user logs in
 			res.redirect('/');
 		} else {
+			// Do something after user fails logging in
 			res.redirect('/signin');
 		}
 	});
