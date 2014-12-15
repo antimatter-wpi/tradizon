@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var users_controller = require('../controllers/user_controller');
+var users_controller = require('../controllers/users_controller');
 
 /*
  * All route are prepended with /users/
