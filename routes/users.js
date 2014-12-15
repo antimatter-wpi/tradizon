@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var user_controller = require('../controllers/user_controller');
+var users_controller = require('../controllers/user_controller');
 
 /*
  * All route are prepended with /users/
@@ -9,30 +9,30 @@ var user_controller = require('../controllers/user_controller');
 /*
  * GET all users
  */
-router.get('/', user_controller.index);
+router.get('/', users_controller.index);
 
 /*
  * POST user information to sign up
  */
-router.post('/new', user_controller.create);
+router.post('/new', users_controller.create);
 
 /*
  * GET information of an user
  */
-router.get('/:id', user_controller.show);
+router.get('/:id', users_controller.show);
 
 /*
  * GET information of all owned items of an user
  */
-router.get('/:id/owned_items', user_controller.showOwnedItems);
+router.get('/:id/owned_items', users_controller.showOwnedItems);
 
 /*
  * GET information of all trading items of an user
  */
-router.get('/:id/trading_items', user_controller.showTradingItems);
+router.get('/:id/trading_items', users_controller.showTradingItems);
 
 /*
- * router.delete('/:id', user_controller.);
+ * router.delete('/:id', items_controller.);
  */
 
 module.exports = router;

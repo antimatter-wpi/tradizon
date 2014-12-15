@@ -15,7 +15,7 @@ router.get('/signin', index_controller.signin);
 /*
  * POST sign information and sign the user in
  *
- * router.post('/signin', users_controller.new())
+ * router.post('/signin', items_controller.new())
  */
 
 module.exports = router;
