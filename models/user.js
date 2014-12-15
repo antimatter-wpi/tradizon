@@ -2,9 +2,38 @@
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    email: DataTypes.STRING,
-    address: DataTypes.STRING,
-    phone: DataTypes.STRING
+    email: { 
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true,
+        isUnique: function(value, next) {
+          if (value) {
+            User.find({ where: {email: value} })
+            .success(function(user) {
+              if (user) {
+                next('this email has been used');
+              } else {
+                next();
+              }
+            })
+            .error(function(err) {
+              next(err.message);
+            })
+          } else {
+            next('empty email');
+          }
+        }
+      }
+    },
+    address: { 
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    phone: { 
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
   }, {
     classMethods: {
       associate: function(models) {
