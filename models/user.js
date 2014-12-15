@@ -28,11 +28,15 @@ module.exports = function(sequelize, DataTypes) {
     },
     address: { 
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     phone: { 
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
+    },
+    password_digest: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {
     classMethods: {
