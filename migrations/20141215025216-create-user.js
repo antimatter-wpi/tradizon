@@ -9,7 +9,12 @@ module.exports = {
         type: DataTypes.INTEGER
       },
       email: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false,
+        validate: {
+          isEmail: true,
+        } 
       },
       address: {
         type: DataTypes.STRING
