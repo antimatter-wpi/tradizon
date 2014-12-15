@@ -1,4 +1,5 @@
-var models = require('../models');
+var models = require('../models'),
+	cryptiles = require('cryptiles');
 
 /*
  * Renders a page that shows all users
@@ -21,7 +22,8 @@ exports.create = function(req, res) {
 	models.User.create({
 		email: req.param('email'),
 		phone: req.param('phone'),
-		address: req.param('address')
+		address: req.param('address'),
+		password_digest: cryptiles.randomString(req.param('password'))
 	})
 	.success(function() {
 		// Do something after create a user

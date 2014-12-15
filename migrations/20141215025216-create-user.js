@@ -22,6 +22,10 @@ module.exports = {
       phone: {
         type: DataTypes.STRING
       },
+      password_digest: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE
