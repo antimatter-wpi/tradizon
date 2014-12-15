@@ -1,5 +1,6 @@
 var models = require('../models'),
-	cryptiles = require('cryptiles');
+	crypto = require('crypto'),
+	shasum = crypto.createHash('sha1');
 
 /*
  * Renders a page that shows all users
@@ -19,11 +20,13 @@ exports.index = function(req, res) {
  * Creates new user
  */
 exports.create = function(req, res) {
+	shasum.update(req.param('password'));
+	
 	models.User.create({
 		email: req.param('email'),
 		phone: req.param('phone'),
 		address: req.param('address'),
-		password_digest: cryptiles.randomString(req.param('password'))
+		password_digest: shasum.digest('base64')
 	})
 	.success(function() {
 		// Do something after create a user
