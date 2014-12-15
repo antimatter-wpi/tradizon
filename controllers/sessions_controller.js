@@ -6,7 +6,19 @@ var models = require('../models'),
  * Renders a sign in form
  */
 exports.new = function(req, res) {
-	res.render("sessions_form");
+	// Gets user_id from cookies
+	var userIdFromCookie = req.cookies.user_id;
+
+	models.User.find(userIdFromCookie)
+	.then(function(user) {
+		if (user) {
+			// Redirects signed in user back to front page
+			res.redirect('/');	
+		} else {
+			// Renders sign in form for new user
+			res.render("sessions_form");	
+		}
+	});
 }
 
 /*
