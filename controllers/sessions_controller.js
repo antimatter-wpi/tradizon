@@ -6,7 +6,19 @@ var models = require('../models'),
  * Renders a sign in form
  */
 exports.new = function(req, res) {
-	res.render("sessions_form");
+	// Gets user_id from cookies
+	var userIdFromCookie = req.cookies.user_id;
+
+	models.User.find(userIdFromCookie)
+	.then(function(user) {
+		if (user) {
+			// Redirects signed in user back to front page
+			res.redirect('/');	
+		} else {
+			// Renders sign in form for new user
+			res.render("sessions_form");	
+		}
+	});
 }
 
 /*
@@ -26,8 +38,9 @@ exports.create = function(req, res) {
 		shasum.update(userPassword);
 		var hashedUserTypedInPassword = shasum.digest('base64');
 
-		if (user && userTypedInPassword == user.password_digest) {
-			// Do something after user logs in
+		if (user && hashedUserTypedInPassword == user.password_digest) {
+			// Store user's id in cookie
+			res.cookie('user_id', user.id);
 			res.redirect('/');
 		} else {
 			// Do something after user fails logging in
@@ -40,5 +53,7 @@ exports.create = function(req, res) {
  * Destroys a session and logs a user out
  */
 exports.destroy = function(req, res) {
-
+	// Delete cookies
+	res.clearCookie('user_id');
+	res.redirect('/');
 }
