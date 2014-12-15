@@ -53,5 +53,7 @@ exports.create = function(req, res) {
  * Destroys a session and logs a user out
  */
 exports.destroy = function(req, res) {
-
+	// Delete cookies
+	res.clearCookie('user_id');
+	res.redirect('/');
 }
