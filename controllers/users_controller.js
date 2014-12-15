@@ -14,7 +14,7 @@ exports.index = function(req, res) {
 			users: users
 		});
 	});
-}
+};
 
 /*
  * Creates new user
@@ -36,4 +36,4 @@ exports.create = function(req, res) {
 		// Do something after failing to create a user
 		res.redirect('/');
 	});
-}
+};
