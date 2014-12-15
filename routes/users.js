@@ -7,4 +7,9 @@ var user_controller = require('../controllers/user_controller');
  */
 router.get('/', user_controller.index);
 
+/*
+ * POST /users/new
+ */
+router.post('/new', user_controller.create);
+
 module.exports = router;
