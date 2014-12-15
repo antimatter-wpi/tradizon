@@ -26,8 +26,9 @@ exports.create = function(req, res) {
 		shasum.update(userPassword);
 		var hashedUserTypedInPassword = shasum.digest('base64');
 
-		if (user && userTypedInPassword == user.password_digest) {
-			// Do something after user logs in
+		if (user && hashedUserTypedInPassword == user.password_digest) {
+			// Store user's id in cookie
+			res.cookie('user_id', user.id);
 			res.redirect('/');
 		} else {
 			// Do something after user fails logging in
