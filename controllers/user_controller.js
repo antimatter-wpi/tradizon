@@ -21,7 +21,8 @@ exports.create = function(req, res) {
 	models.User.create({
 		email: req.param('email'),
 		phone: req.param('phone'),
-		address: req.param('address')
+		address: req.param('address'),
+		password_digest: req.param('password')
 	})
 	.success(function() {
 		// Do something after create a user
