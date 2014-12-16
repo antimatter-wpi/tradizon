@@ -13,6 +13,11 @@ var items_controller = require('../controllers/items_controller.js'),
  */
 
 /*
+ * GET all items
+ */
+router.get('/', items_controller.index);
+
+/*
  * GET a form for adding a new item
  */
 router.get('/new', items_controller.new);
