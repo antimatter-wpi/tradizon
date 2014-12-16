@@ -58,7 +58,7 @@ exports.showOwnedItems = function(req, res) {
 	.then(function(items) {
 		res.send(items);
 	});
-}
+};
 
 /*
  * Shows all trading of a user
@@ -70,4 +70,4 @@ exports.showTradingItems = function(req, res) {
 	.then(function(items) {
 		res.send(items);
 	});
-}
+};

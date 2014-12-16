@@ -8,7 +8,7 @@ exports.index = function(req, res) {
 	.then(function(categories) {
 		res.send(categories);
 	});
-}
+};
 
 /*
  * Creates a new category
@@ -21,7 +21,7 @@ exports.new = function(req, res) {
 	models.Category.create({
 		name: categoryName
 	});
-}
+};
 
 /*
  * Deletes a category
@@ -38,4 +38,4 @@ exports.destroy = function(req, res) {
 			res.redirect('/');
 		})
 	})
-}
+};

@@ -19,7 +19,7 @@ exports.new = function(req, res) {
 			res.render('signin', {title: 'Sign In | Tradizon'});
 		}
 	});
-}
+};
 
 /*
  * Creates a session and logs a user in
@@ -47,7 +47,7 @@ exports.create = function(req, res) {
 			res.redirect('/signin');
 		}
 	});
-}
+};
 
 /*
  * Destroys a session and logs a user out
@@ -56,4 +56,4 @@ exports.destroy = function(req, res) {
 	// Delete cookies
 	res.clearCookie('user_id');
 	res.redirect('/');
-}
+};
