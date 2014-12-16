@@ -8,12 +8,11 @@ Routes
 			POST '/signin' 		// Post email and password (hashed) to sign in
 		_ Signup:
 			GET '/signup'		// Get sign up page
+			POST '/signup'	// Post user information to sign up
 		_ Signout:
 			DELETE '/signout'	// Sign user out
-		
 	Users (users.js):
-		_ Signup:
-			POST '/users/new' 					// Post user information to sign up
+
 		_ Users information:
 			GET 	'/users/:id'				// get information of an user
 			GET 	'/users/:id/owned_items'	// get information of all owned items of the user
