@@ -11,6 +11,16 @@ exports.index = function(req, res) {
 };
 
 /*
+ * Returns a category corresponding to the given id
+ */
+exports.show = function(req, res) {
+	models.Category.find(req.params.id)
+	.then(function(category) {
+		res.send(category);
+	});
+}
+
+/*
  * Creates a new category
  */
 exports.new = function(req, res) {
