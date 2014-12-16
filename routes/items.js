@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var items_controller = require('../controllers/items_controller');
+var items_controller = require('../controllers/items_controller.js'),
+	categories_controller = require('../controllers/categories_controller.js');
 
 /*
  * All route are prepended with /items/
@@ -20,6 +21,11 @@ router.post('/new', items_controller.create);
  * GET information of an item
  */
 router.get('/:id', items_controller.show);
+
+/*
+ * GET a form to create new category
+ */
+router.get('/categories/new', categories_controller.new);
 
 /*
  * GET information of all items in a category
