@@ -4,6 +4,7 @@ var models = require('../models');
  * Render a form for adding a new item
  */
 exports.new = function(req, res) {
+	res.render('new_item');
 };
 
 /*

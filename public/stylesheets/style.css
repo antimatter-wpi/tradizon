@@ -18,3 +18,7 @@ body {
 form a {
   float: right;
 }
+
+.btn {
+  margin: 5px;
+}
