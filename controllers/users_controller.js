@@ -39,10 +39,20 @@ exports.create = function(req, res) {
 };
 
 /*
+ * Shows all owned items
+ */
+exports.showOwnedItems = function(req, res) {
+	models.Item.findAll({ OwnerId : req.params.id })
+	.then(function(items) {
+		res.send(items);
+	})
+}
+
+/*
  * Shows all trading of a user
  */
 exports.showTradingItems = function(req, res) {
-	models.Item.findAll({ OwnerId : req.params.id })
+	models.Item.findAll({ TradeeId : req.params.id })
 	.then(function(items) {
 		res.send(items);
 	})

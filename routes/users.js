@@ -24,7 +24,7 @@ router.post('/new', users_controller.create);
 /*
  * GET information of all owned items of an user
  */
-// router.get('/:id/owned_items', users_controller.showOwnedItems);
+router.get('/:id/owned_items', users_controller.showOwnedItems);
 
 /*
  * GET information of all trading items of an user
