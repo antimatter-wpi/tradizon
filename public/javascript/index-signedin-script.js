@@ -9,9 +9,11 @@ function openAddNewItem() {
             console.log("User id: " + $.cookies);
             $('#ownerid').attr('value', $.cookie('user_id'));
             $('#add-form').submit(function(e) {
-                addNewItem(new FormData($(this)[0]));
-                closeAddNewItem();
-                loadItemsByActiveCategory();
+                addNewItem(new FormData($(this)[0]), function() {
+                    closeAddNewItem();
+                    loadItemsByActiveCategory();
+                    loadOwnItem();
+                });
                 e.preventDefault();
             });
         }
@@ -21,6 +23,13 @@ function openAddNewItem() {
 function closeAddNewItem() {
     $('#new-item-box').fadeOut('fast');
     $('#overlay').hide();
+}
+
+function loadOwnItem() {
+    getOwnedItems(function(html) {
+        console.log(html);
+        $('#user-items').html(html);
+    });
 }
 
 function loadCategories() {
@@ -44,5 +53,6 @@ function selectCategory(categoryId) {
 }
 
 $(function() {
-   loadCategories();
+    loadCategories();
+    loadOwnItem();
 });

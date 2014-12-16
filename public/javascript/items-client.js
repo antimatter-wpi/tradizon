@@ -2,7 +2,7 @@
  * Created by cuongnd on 12/16/14.
  */
 
-function addNewItem(formData) {
+function addNewItem(formData, callback) {
     $.ajax(
         {
             type: 'POST',
@@ -13,6 +13,7 @@ function addNewItem(formData) {
             processData: false,
             success: function() {
                 alert("Item added successfully!");
+                callback();
             }
         });
 }
@@ -41,14 +42,9 @@ function getAnItem(itemId, callback) {
     });
 }
 
-function getOwnedItems(userId, callback) {
-    $.get('/users/' + userId + '/owned_items', function(data) {
+function getOwnedItems(callback) {
+    $.get('/users/' + $.cookie('user_id') + '/owned_items', function(data) {
         callback(data);
     });
 }
 
-function getTradingItems(userId, callback) {
-    $.get('/users/' + userId + '/trading_items', function(data) {
-        callback(data);
-    });
-}

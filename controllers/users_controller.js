@@ -59,7 +59,7 @@ exports.showOwnedItems = function(req, res) {
 		where: { OwnerId : req.params.id } 
 	})
 	.then(function(items) {
-		res.send(items);
+		res.render('items', {items: items});
 	});
 };
 
