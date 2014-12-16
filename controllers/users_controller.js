@@ -16,6 +16,16 @@ exports.index = function(req, res) {
 };
 
 /*
+ * Renders a Jade template to show a user's info
+ */
+exports.show = function(req, res) {
+	models.User.find(req.params.id)
+	.then(function(user) {
+		res.render('user', { user: user });
+	})
+}
+
+/*
  * Creates new user
  */
 exports.create = function(req, res) {
