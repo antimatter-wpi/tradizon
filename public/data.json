@@ -1,0 +1,40 @@
+{
+    "items": [
+        {
+            "src": "http://placehold.it/300x200",
+            "title": "Image 1"
+        },
+        {
+            "src": "http://placehold.it/300x200",
+            "title": "Image 2"
+        },
+        {
+            "src": "http://placehold.it/300x200",
+            "title": "Image 3"
+        },
+        {
+            "src": "http://placehold.it/300x200",
+            "title": "Image 4"
+        },
+        {
+            "src": "http://placehold.it/300x200",
+            "title": "Image 5"
+        },
+        {
+            "src": "http://placehold.it/300x200",
+            "title": "Image 6"
+        },
+        {
+            "src": "http://placehold.it/300x200",
+            "title": "Image 7"
+        },
+        {
+            "src": "http://placehold.it/300x200",
+            "title": "Image 8"
+        },
+        {
+            "src": "http://placehold.it/300x200",
+            "title": "Image 9"
+        }
+    ]
+}
