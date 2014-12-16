@@ -1,12 +1,15 @@
-h1 Sign in
-form(action="/signin", method="POST")
-	label(for="email") Email
-	input(type="text", name="email")
+extends layout
 
-	label(for="password") Password
-	input(type="password", name="password")
+block content
+	h1 Sign in
+	form(action="/signin", method="POST")
+		label(for="email") Email
+		input(type="text", name="email")
 
-	input(type="submit")
+		label(for="password") Password
+		input(type="password", name="password")
 
-p.
-	New user? Sign up now
+		input(type="submit")
+
+	p.
+		New user? Sign up now

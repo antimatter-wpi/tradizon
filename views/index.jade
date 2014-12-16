@@ -2,7 +2,9 @@ extends layout
 
 block head
   link(rel='stylesheet' href='/stylesheets/homepage.css')
+  link(rel='stylesheet' href='/stylesheets/jcarousel.css')
   script(type='text/javascript' src='/javascript/jquery.jcarousel.min.js')
+  script(type='text/javascript' src='/javascript/jcarousel.ajax.js')
 
 block content
   div#main-wrapper
@@ -13,5 +15,5 @@ block content
       div.jcarousel-wrapper
         div.jcarousel
           div.loading Loading new items
-        a.jcarousel-control-next(href='#') &lsaquo;
+        a.jcarousel-control-prev(href='#') &lsaquo;
         a.jcarousel-control-next(href='#') &rsaquo;
