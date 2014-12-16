@@ -1,3 +1,9 @@
 //
    Created by cuongnd on 12/16/14.
 
+ul.nav.nav-pills.nav-stacked
+   each data, index in categories
+      if !index
+         li.active: a(href='#' id='category-' + data.id onclick='loadItemsByCategory('+ data.id + ')')= data.name
+      else
+         li: a(href='#' id='category-' + data.id onclick='loadItemsByCategory(' + data.id + ')') data.name

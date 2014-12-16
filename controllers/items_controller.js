@@ -17,6 +17,10 @@ exports.create = function(req, res) {
  * Get information of an item
  */
 exports.show = function(req, res) {
+	models.Item.find(req.params.id)
+		.then(function(data) {
+			res.render('items', {items: [data]});
+		})
 };
 
 /*
@@ -26,8 +30,8 @@ exports.showByCategory = function(req, res) {
 	models.Item.findAll({ 
 		where: { CategoryId: req.param.id } 
 	})
-	.then(function(items) {
-		res.send(items);
+	.then(function(data) {
+		res.render('items', {items: data});
 	});
 };
 

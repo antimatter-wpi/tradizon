@@ -1,7 +1,8 @@
 extends layout
 block head
     link(rel='stylesheet' href='/stylesheets/index-signedin.css')
-    script(src='javascript/items.js' type='text/javascript')
+    script(src='/javascript/items-client.js')
+    script(src='/javascript/index-signedin-script.js')
 block content
     #main-wrapper
         #banner
@@ -11,10 +12,6 @@ block content
                 a#new-item.btn.btn-primary(type="button" onclick="openAddNewItem()") New Item
         #user-items
         #categories
-            ul.nav.nav-pills.nav-stacked
-                li.active: a(href='#') Books
-                li: a(href='#') DVD
-                li: a(href='#') Softwares
         #browse-item
         #overlay
         #new-item-box

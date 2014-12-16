@@ -26,6 +26,7 @@ Routes
 			GET		'/items/:id' 			// get one item
 			GET    	'/items/categories/:id'	// get all items in a category
 			DELETE 	'/items/:id'			// delete an item
+			GET		'/items/categories'		// get all categories
 
 Controllers:
 	Index Controllers (index_controller.js):

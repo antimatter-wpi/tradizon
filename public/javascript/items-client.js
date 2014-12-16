@@ -2,35 +2,54 @@
  * Created by cuongnd on 12/16/14.
  */
 
-function openAddNewItem() {
-    $.get('/items/new', function (data) {
-            $('#new-item-box').html(data).fadeIn('fast');
-            $('#overlay').show();
-        }
-    )
-}
-
-function closeAddNewItem() {
-    $('#new-item-box').fadeOut('fast');
-    $('#overlay').hide();
-}
-
 function addNewItem(e) {
     $.ajax(
         {
             type: 'POST',
-            url: '/laptops/add',
+            url: '/items/new',
             cache: false,
             data: formData,
             contentType: false,
             processData: false,
             success: function(id) {
-                alert("Product added successfully!");
-                getLaptopAjax(false, id);
-            },
-            error: function (err) {
-                console.log(err.status + ': ' + err.statusText);
+                alert("Item added successfully!");
             }
         });
     e.preventDefault();
+}
+
+function getAllCategories(callback) {
+    $.get('/items/categories', function(data){
+        callback(data);
+    });
+}
+
+function getAllItem() {
+    $.get('/items', function(data) {
+        callback(data);
+    });
+}
+
+function getItemsByCategory(categoryId, callback) {
+    $.get('/items/categories/' + categoryId, function(data) {
+        callback(data);
+    });
+}
+
+function getAnItem(itemId, callback) {
+    $.get('/items/' + itemId, function(data) {
+        callback(data);
+    });
+}
+
+function getOwnedItems(userId, callback) {
+    $.get('/users/' + userId + '/owned_items', function(data) {
+        callback(data);
+    });
+}
+
+function getTradingItems(userId, callback) {
+    $.get('/users/' + userId + '/trading_items', function(data) {
+        callback(data);
+    });
 }
