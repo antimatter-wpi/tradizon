@@ -6,7 +6,7 @@ var models = require('../models'),
  * Renders a form for signing up
  */
 exports.new = function(req, res) {
-	res.render('signup');
+	res.render('signup', {title :'Sign Up | Tradizon'});
 };
 
 /*
