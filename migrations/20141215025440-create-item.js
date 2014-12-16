@@ -17,6 +17,13 @@ module.exports = {
       description: {
         type: DataTypes.STRING
       },
+      owner_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      tradee_id: {
+        type: DataTypes.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE
