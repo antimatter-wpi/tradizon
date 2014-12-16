@@ -6,7 +6,12 @@ function openAddNewItem() {
     $.get('/items/new', function (data) {
             $('#new-item-box').html(data).fadeIn('fast');
             $('#overlay').show();
-            $('#add-form').submit(function(e) {addNewItem(e)});
+            console.log("User id: " + $.cookies);
+            $('#ownerid').attr('value', $.cookie('user_id'));
+            $('#add-form').submit(function(e) {
+                addNewItem(new FormData($(this)[0]));
+                e.preventDefault();
+            });
         }
     )
 }
@@ -19,6 +24,7 @@ function closeAddNewItem() {
 function loadCategories() {
     getAllCategories(function(html) {
         $('#categories').html(html);
+        loadItemsByCategory($('li.active a').attr('name'));
     });
 }
 
@@ -30,5 +36,4 @@ function loadItemsByCategory(categoryId) {
 
 $(function() {
    loadCategories();
-   loadItemsByCategory($('li.active').attr('name'));
 });

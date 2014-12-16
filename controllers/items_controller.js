@@ -1,4 +1,6 @@
 var models = require('../models');
+var formidable = require('formidable');
+var path = require('path');
 
 /*
  * Sends back all items
@@ -8,29 +10,44 @@ exports.index = function(req, res) {
 	.then(function(items) {
 		res.send(items);
 	});
-}
+};
 
 /*
  * Render a form for adding a new item
  */
 exports.new = function(req, res) {
-	res.render('new_item');
-
+	models.Category.findAll()
+		.then(function(categories) {
+			res.render('new_item', { categories: categories });
+		});
 };
 
 /*
  * Creates new item
  */
 exports.create = function(req, res) {
-	models.Item.create({
-		photo: 		 req.param('photo'),
-		title: 		 req.param('title'),
-		description: req.param('description')
-	})
-	.then(function() {
-		// TODO do something after creating new item
-		res.end();
+	var form = new formidable.IncomingForm();
+
+	form.uploadDir = __dirname + '/../public/img/items';
+	form.keepExtensions = true;
+
+	form.parse(req, function(err, fields, files) {
+
+		fields.photo = '/img/items/' + path.basename(files.photo.path);
+		models.Item.create({
+			photo: 		 fields.photo,
+			title: 		 fields.title,
+			description: fields.description,
+			OwnerId:	 fields.ownerid,
+			CategoryId:  fields.categoryId
+		})
+		.then(function() {
+			// TODO do something after creating new item
+			res.end();
+		});
+
 	});
+
 };
 
 /*
@@ -48,11 +65,12 @@ exports.show = function(req, res) {
  */
 exports.showByCategory = function(req, res) {
 	models.Item.findAll({ 
-		where: { CategoryId: req.param.id } 
+		where: { CategoryId: req.params.id }
 	})
 	.then(function(data) {
 		res.render('items', {items: data});
 	});
+
 };
 
 /*

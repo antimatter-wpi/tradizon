@@ -2,7 +2,7 @@
  * Created by cuongnd on 12/16/14.
  */
 
-function addNewItem(e) {
+function addNewItem(formData) {
     $.ajax(
         {
             type: 'POST',
@@ -11,11 +11,10 @@ function addNewItem(e) {
             data: formData,
             contentType: false,
             processData: false,
-            success: function(id) {
+            success: function() {
                 alert("Item added successfully!");
             }
         });
-    e.preventDefault();
 }
 
 function getAllCategories(callback) {

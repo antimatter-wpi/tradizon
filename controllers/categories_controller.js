@@ -18,14 +18,14 @@ exports.show = function(req, res) {
 	.then(function(category) {
 		res.send(category);
 	});
-}
+};
 
 /*
  * Renders a form to create new category
  */
 exports.new = function(req, res) {
 	res.render('category_form');
-}
+};
 
 /*
  * Creates a new category
@@ -39,7 +39,6 @@ exports.create = function(req, res) {
 		name: categoryName
 	})
 	.then(function() {
-		// TODO Do something after creating new category
 		res.redirect('/items/categories')
 	});
 };
