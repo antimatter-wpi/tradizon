@@ -25,6 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+
 app.use(function(req, res, next) {
     // Gets user_id from cookies
     var userIdFromCookie = req.cookies.user_id;
@@ -40,6 +41,7 @@ app.use(function(req, res, next) {
             }
         });
 });
+
 app.use('/users', users);
 app.use('/items', items);
 
