@@ -3,25 +3,6 @@ var models = require('../models'),
 	shasum = crypto.createHash('sha1');
 
 /*
- * Renders a sign in form
- */
-exports.new = function(req, res) {
-	// Gets user_id from cookies
-	var userIdFromCookie = req.cookies.user_id;
-
-	models.User.find(userIdFromCookie)
-	.then(function(user) {
-		if (user) {
-			// Redirects signed in user back to front page
-			res.redirect('/');	
-		} else {
-			// Renders sign in form for new user
-			res.render('signin', {title: 'Sign In | Tradizon'});
-		}
-	});
-};
-
-/*
  * Creates a session and logs a user in
  */
 exports.create = function(req, res) {

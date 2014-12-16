@@ -3,13 +3,6 @@ var models = require('../models'),
 	shasum = crypto.createHash('sha1');
 
 /*
- * Renders a form for signing up
- */
-exports.new = function(req, res) {
-	res.render('signup', {title :'Sign Up | Tradizon'});
-};
-
-/*
  * Renders a page that shows all users
  */
 exports.index = function(req, res) {

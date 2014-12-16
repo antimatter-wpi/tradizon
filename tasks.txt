@@ -6,17 +6,19 @@ Routes
 		_ Signin: 
 			GET '/signin'  		// Get sign in page
 			POST '/signin' 		// Post email and password (hashed) to sign in
+		_ Signup:
+			GET '/signup'		// Get sign up page
+		_ Signout:
+			DELETE '/signout'	// Sign user out
 		
 	Users (users.js):
-		_ Signup: 
-			GET '/users/new'  					// Get sign up page
+		_ Signup:
 			POST '/users/new' 					// Post user information to sign up
 		_ Users information:
 			GET 	'/users/:id'				// get information of an user
 			GET 	'/users/:id/owned_items'	// get information of all owned items of the user
 			GET 	'/users/:id/trading_items'	// get information of all trading items
-			DELETE  '/users/:id'				// sign out
-			
+
 	Items (items.js):
 		_ Add an item: 
 			GET		'/items/new'
@@ -30,8 +32,8 @@ Controllers:
 	Index Controllers (index_controller.js):
 		_ index()  			// get index page
 		_ signin() 			// get signin page
+		_ signup()			// get sign up page
 	Users Controllers (users_controller.js):
-		_ new()  			// get sign up page
 		_ create()  		// add a new user to the database
 		_ show()			// get information of an user
 		_ showOwnedItems	// get all owned items of the user
@@ -44,8 +46,10 @@ Controllers:
 		_ showCategories()	// get all categories
 		_ show()			// get one item
 		_ showByCategory()	// get all items of a category
+	Session Controllers (session_controllers.js):
+		_ create()			// create a new session and log the user in
+		_ destroy()			// log user out
 
-!! Implement session of users
 !! Client-side
 !! Style
 

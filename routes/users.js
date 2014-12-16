@@ -12,11 +12,6 @@ var users_controller = require('../controllers/users_controller');
 router.get('/', users_controller.index);
 
 /*
- * GET sign up page
- */
-router.get('/new', users_controller.new);
-
-/*
  * POST user information to sign up
  */
 router.post('/new', users_controller.create);
@@ -39,5 +34,6 @@ router.get('/:id/trading_items', users_controller.showTradingItems);
 /*
  * router.delete('/:id', items_controller.);
  */
+
 
 module.exports = router;

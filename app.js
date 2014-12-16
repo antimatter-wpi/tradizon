@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var models = require('./models');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -24,8 +25,24 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use(function(req, res, next) {
+    // Gets user_id from cookies
+    var userIdFromCookie = req.cookies.user_id;
+
+    models.User.find(userIdFromCookie)
+        .then(function(user) {
+            if (user) {
+                // If signed in, pass this authentication gate
+                next();
+            } else {
+                // Renders sign in form for new user
+                res.render('signin', {title: 'Sign In | Tradizon'});
+            }
+        });
+});
 app.use('/users', users);
 app.use('/items', items);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
