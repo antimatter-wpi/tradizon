@@ -14,7 +14,7 @@ router.get('/', users_controller.index);
 /*
  * GET information of an user
  */
-// router.get('/:id', users_controller.show);
+router.get('/:id', users_controller.show);
 
 /*
  * GET information of all owned items of an user
