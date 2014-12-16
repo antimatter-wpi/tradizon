@@ -6,20 +6,41 @@ var models = require('../models');
 exports.index = function(req, res) {
 	models.Category.findAll()
 	.then(function(categories) {
-		res.send(categories);
+		res.render('categories', { categories: categories });
 	});
 };
 
 /*
- * Creates a new category
+ * Returns a category corresponding to the given id
+ */
+exports.show = function(req, res) {
+	models.Category.find(req.params.id)
+	.then(function(category) {
+		res.send(category);
+	});
+}
+
+/*
+ * Renders a form to create new category
  */
 exports.new = function(req, res) {
+	res.render('category_form');
+}
+
+/*
+ * Creates a new category
+ */
+exports.create = function(req, res) {
 	// Lowercases category name to ensure consistency
-	var categoryName = req.param('categoryName').toLowerCase();
+	var categoryName = req.param('categoryName');
 
 	// Creates a category with the given name
 	models.Category.create({
 		name: categoryName
+	})
+	.then(function() {
+		// TODO Do something after creating new category
+		res.redirect('/items/categories')
 	});
 };
 

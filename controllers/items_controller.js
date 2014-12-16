@@ -26,7 +26,7 @@ exports.create = function(req, res) {
  * Get information of an item
  */
 exports.show = function(req, res) {
-	model.Item.find(req.params.id)
+	models.Item.find(req.params.id)
 	.then(function(item) {
 		res.render('item', { item: item });
 	})
