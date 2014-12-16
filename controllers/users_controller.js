@@ -37,3 +37,23 @@ exports.create = function(req, res) {
 		res.redirect('/');
 	});
 };
+
+/*
+ * Shows all owned items of a user
+ */
+exports.showOwnedItems = function(req, res) {
+	models.Item.findAll({ where: { OwnerId : req.params.id } })
+	.then(function(items) {
+		res.send(items);
+	});
+}
+
+/*
+ * Shows all trading of a user
+ */
+exports.showTradingItems = function(req, res) {
+	models.Item.findAll({ where: { TradeeId : req.params.id } })
+	.then(function(items) {
+		res.send(items);
+	});
+}
