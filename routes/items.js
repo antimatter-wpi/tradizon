@@ -18,9 +18,9 @@ router.get('/new', items_controller.new);
 router.post('/new', items_controller.create);
 
 /*
- * GET information of an item
+ * GET all categories
  */
-router.get('/:id', items_controller.show);
+router.get('/categories', categories_controller.index);
 
 /*
  * GET a form to create new category
@@ -28,9 +28,19 @@ router.get('/:id', items_controller.show);
 router.get('/categories/new', categories_controller.new);
 
 /*
+ * POST information to create new category
+ */
+router.post('/categories/new', categories_controller.create);
+
+/*
  * GET information of all items in a category
  */
 router.get('/categories/:id', items_controller.showByCategory);
+
+/*
+ * GET information of an item
+ */
+router.get('/:id', items_controller.show);
 
 /*
  * DELETE an item in the database

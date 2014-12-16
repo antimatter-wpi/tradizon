@@ -6,7 +6,7 @@ var models = require('../models');
 exports.index = function(req, res) {
 	models.Category.findAll()
 	.then(function(categories) {
-		res.send(categories);
+		res.render('categories', { categories: categories });
 	});
 };
 
@@ -32,7 +32,7 @@ exports.new = function(req, res) {
  */
 exports.create = function(req, res) {
 	// Lowercases category name to ensure consistency
-	var categoryName = req.param('categoryName').toLowerCase();
+	var categoryName = req.param('categoryName');
 
 	// Creates a category with the given name
 	models.Category.create({
@@ -40,6 +40,7 @@ exports.create = function(req, res) {
 	})
 	.then(function() {
 		// TODO Do something after creating new category
+		res.redirect('/items/categories')
 	});
 };
 
