@@ -1,0 +1,21 @@
+h2 Add New Item
+hr
+form#add-form
+    .form-group
+        label(for="name") Name
+        input.form-control(type="text", name="name", placeholder="Enter name of the item" autocomplete="off")
+    .form-group
+        label(for="category") Category
+        select.form-control(autocomplete="off")
+            option Books
+            option DVD
+            option Other
+    .form-group
+        label(for="image-file") Image
+        input(type="file" name="image" autocomplete="off")
+        p.help-block Add an image for the item.
+    .form-group
+        label(for="description") Description
+        textarea.form-control(name="description" rows="8" cols="35" autocomplete="off")
+    button.btn.btn-primary(type="submit" style="float:right") Add Item
+    button.btn.btn-danger(type="button" style="float:right" onclick="closeAddNewItem()") Cancel

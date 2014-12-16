@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     description: {
       type: DataTypes.STRING,
       allowNull: false
-    },
+    }
   }, {
     classMethods: {
       associate: function(models) {

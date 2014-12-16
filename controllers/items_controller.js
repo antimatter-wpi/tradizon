@@ -14,7 +14,8 @@ exports.index = function(req, res) {
  * Render a form for adding a new item
  */
 exports.new = function(req, res) {
-	res.render('item_form');
+	res.render('new_item');
+
 };
 
 /*
@@ -37,9 +38,9 @@ exports.create = function(req, res) {
  */
 exports.show = function(req, res) {
 	models.Item.find(req.params.id)
-	.then(function(item) {
-		res.render('item', { item: item });
-	})
+		.then(function(data) {
+			res.render('items', {items: [data]});
+		})
 };
 
 /*
@@ -49,8 +50,8 @@ exports.showByCategory = function(req, res) {
 	models.Item.findAll({ 
 		where: { CategoryId: req.param.id } 
 	})
-	.then(function(items) {
-		res.send(items);
+	.then(function(data) {
+		res.render('items', {items: data});
 	});
 };
 

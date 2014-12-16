@@ -1,6 +1,5 @@
 var models = require('../models'),
-	crypto = require('crypto'),
-	shasum = crypto.createHash('sha1');
+	crypto = require('crypto');
 
 /*
  * Creates a session and logs a user in
@@ -16,7 +15,8 @@ exports.create = function(req, res) {
 	})
 	.then(function(user) {
 		// Hash the typed in password from user
-		shasum.update(userPassword);
+		var shasum = crypto.createHash('sha1');
+		shasum.update(userPassword, 'utf8');
 		var hashedUserTypedInPassword = shasum.digest('base64');
 
 		if (user && hashedUserTypedInPassword == user.password_digest) {
