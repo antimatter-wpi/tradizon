@@ -21,6 +21,13 @@ exports.show = function(req, res) {
 }
 
 /*
+ * Renders a form to create new category
+ */
+exports.new = function(req, res) {
+	res.render('category_form');
+}
+
+/*
  * Creates a new category
  */
 exports.create = function(req, res) {
