@@ -12,11 +12,6 @@ var users_controller = require('../controllers/users_controller');
 router.get('/', users_controller.index);
 
 /*
- * POST user information to sign up
- */
-router.post('/new', users_controller.create);
-
-/*
  * GET information of an user
  */
 // router.get('/:id', users_controller.show);

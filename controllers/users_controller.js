@@ -33,7 +33,7 @@ exports.create = function(req, res) {
 	})
 	.then(function() {
 		// Do something after creating a user
-		res.redirect('/users');
+		res.redirect('/');
 	})
 	.catch(function(err) {
 		// Do something after failing to create a user
