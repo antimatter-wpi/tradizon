@@ -39,27 +39,21 @@ exports.create = function(req, res) {
 };
 
 /*
- * Shows all owned items
+ * Shows all owned items of a user
  */
 exports.showOwnedItems = function(req, res) {
-	models.Item.findAll({ OwnerId : req.params.id })
+	models.Item.findAll({ where: { OwnerId : req.params.id } })
 	.then(function(items) {
 		res.send(items);
-	})
+	});
 }
 
 /*
  * Shows all trading of a user
  */
 exports.showTradingItems = function(req, res) {
-	models.Item.findAll({ TradeeId : req.params.id })
+	models.Item.findAll({ where: { TradeeId : req.params.id } })
 	.then(function(items) {
 		res.send(items);
-	})
-
-	// models.User.find(req.params.id)
-	// .then(function(user) {
-	// 	console.log(user.getOwnedItems);
-	// 	res.send(user.getOwnedItems);
-	// });
+	});
 }
