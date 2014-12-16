@@ -4,8 +4,7 @@
 
 function openAddNewItem() {
     $.get('/items/new', function (data) {
-            $('#new-item-box').html(data);
-            $('#new-item-box').fadeIn('fast');
+            $('#new-item-box').html(data).fadeIn('fast');
             $('#overlay').show();
         }
     )
