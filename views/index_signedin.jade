@@ -1,11 +1,17 @@
 extends layout
 block head
-    link(rel='stylesheet' href='/stylesheets/homepage.css')
+    link(rel='stylesheet' href='/stylesheets/index-signedin.css')
 block content
-    div#main-wrapper
-       div#banner
+    #main-wrapper
+       #banner
            img(href="")
-           button.btn.btn-danger(type="button") Sign Out
-           button.btn.btn-primary(type="button") New Item
-       div#user-items
-       div#browse-items
+           #two-buttons
+           a#sign-out.btn.btn-danger(href='/signout') Sign Out
+           a#new-item.btn.btn-primary(type="button") New Item
+       #user-items
+       #categories
+           ul.nav.nav-pills.nav-stacked
+               li.active: a(href='#') Books
+               li: a(href='#') DVD
+               li: a(href='#') Softwares
+       #browse-items

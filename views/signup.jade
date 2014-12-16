@@ -1,23 +1,23 @@
 extends layout
 
 block content
-	div#box-wrapper
+	#box-wrapper
 		h1 Sign Up
 		hr
-		form(role="form" action="/users/new", method="POST")
-			div.form-group
+		form(role="form" action="/signup", method="POST")
+			.form-group
 				label(for="email") Email
 				input.form-control(type="email", name="email", placeholder="Enter email" autocomplete=false required)
-			div.form-group
+			.form-group
 				label(for="password") Password
 				input.form-control(type="password", name="password", placeholder="Password" autocomplete=false required)
-			div.form-group
+			.form-group
 				label(for="password-confirmation") Confirm Password
 				input.form-control(type="password", name="password-confirmation", placeholder="Confirm Password" autocomplete=false required)
-			div.form-group
+			.form-group
 				label(for="address") Address
 				input.form-control(type="text", name="address", placeholder="Address" autocomplete=false)
-			div.form-group
+			.form-group
 				label(for="phone") Phone Number
 				input.form-control(type="text", name="phone", placeholder="Phone Number" autocomplete=false)
 
