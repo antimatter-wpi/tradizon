@@ -23,13 +23,16 @@ exports.show = function(req, res) {
 /*
  * Creates a new category
  */
-exports.new = function(req, res) {
+exports.create = function(req, res) {
 	// Lowercases category name to ensure consistency
 	var categoryName = req.param('categoryName').toLowerCase();
 
 	// Creates a category with the given name
 	models.Category.create({
 		name: categoryName
+	})
+	.then(function() {
+		// TODO Do something after creating new category
 	});
 };
 
