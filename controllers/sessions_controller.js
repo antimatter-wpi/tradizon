@@ -16,7 +16,7 @@ exports.new = function(req, res) {
 			res.redirect('/');	
 		} else {
 			// Renders sign in form for new user
-			res.render('signin');
+			res.render('signin', {title: 'Sign In | Tradizon'});
 		}
 	});
 }
