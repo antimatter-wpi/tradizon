@@ -1,5 +1,17 @@
 extends layout
 
+block head
+  link(rel='stylesheet' href='/stylesheets/homepage.css')
+  script(type='text/javascript' src='/javascript/jquery.jcarousel.min.js')
+
 block content
-  div#banner
-    a#start_trading(href='/signin') Start Trading
+  div#main-wrapper
+    div#banner
+      a#start_trading.btn.btn-primary.btn-lg(href="/signin") Start Trading
+    div#new_items
+      h1 New Items
+      div.jcarousel-wrapper
+        div.jcarousel
+          div.loading Loading new items
+        a.jcarousel-control-next(href='#') &lsaquo;
+        a.jcarousel-control-next(href='#') &rsaquo;

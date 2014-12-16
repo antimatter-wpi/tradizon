@@ -3,3 +3,11 @@ div#banner {
     height: 400px;
     background: #ffffff url('http://placehold.it/1000x400') no-repeat right top;
 }
+
+#start_trading {
+    margin: auto;
+    display: block;
+    width: 20%;
+    position: relative;
+    top: 280px;
+}

@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+#main-wrapper {
+  width: 1000px;
+  margin: auto;
+}
