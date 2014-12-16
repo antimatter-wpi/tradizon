@@ -4,7 +4,7 @@ block content
 	div#box-wrapper
 		h1 Sign Up
 		hr
-		form(role="form" action="/user/new", method="POST")
+		form(role="form" action="/users/new", method="POST")
 			div.form-group
 				label(for="email") Email
 				input.form-control(type="email", name="email", placeholder="Enter email" autocomplete=false required)
@@ -12,8 +12,8 @@ block content
 				label(for="password") Password
 				input.form-control(type="password", name="password", placeholder="Password" autocomplete=false required)
 			div.form-group
-				label(for="password") Confirm Password
-				input.form-control(type="password", name="password", placeholder="Confirm Password" autocomplete=false required)
+				label(for="password-confirmation") Confirm Password
+				input.form-control(type="password", name="password-confirmation", placeholder="Confirm Password" autocomplete=false required)
 			div.form-group
 				label(for="address") Address
 				input.form-control(type="text", name="address", placeholder="Address" autocomplete=false)
