@@ -10,6 +10,8 @@ function openAddNewItem() {
             $('#ownerid').attr('value', $.cookie('user_id'));
             $('#add-form').submit(function(e) {
                 addNewItem(new FormData($(this)[0]));
+                closeAddNewItem();
+                loadItemsByActiveCategory();
                 e.preventDefault();
             });
         }
@@ -24,14 +26,21 @@ function closeAddNewItem() {
 function loadCategories() {
     getAllCategories(function(html) {
         $('#categories').html(html);
-        loadItemsByCategory($('li.active a').attr('name'));
+        loadItemsByActiveCategory();
     });
 }
 
-function loadItemsByCategory(categoryId) {
+function loadItemsByActiveCategory() {
+    var categoryId = $('li.active a').attr('name');
     getItemsByCategory(categoryId, function(html) {
         $('#browse-item').html(html);
     });
+}
+
+function selectCategory(categoryId) {
+    $('#categories ul li').removeClass('active');
+    $('li#category-'+categoryId).addClass('active');
+    loadItemsByActiveCategory()
 }
 
 $(function() {

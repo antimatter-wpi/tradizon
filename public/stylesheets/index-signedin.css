@@ -18,7 +18,19 @@ div#banner {
 
 #categories {
     float: left;
-    width: 30%;
+    width: 250px;
+}
+
+#categories li {
+    border-bottom: 1px solid #28a4c9;
+}
+
+#browse-item {
+    padding: 10px;
+    float:left;
+    width: 725px;
+    margin: 0 10px;
+    border-left: 1px solid #28a4c9;
 }
 
 #new-item-box {
@@ -31,8 +43,9 @@ div#banner {
     right: 0;
     left: 0;
     width: 600px;
-    heigth: 500px;
+    height: 95%;
     padding: 20px;
+    overflow: auto;
 }
 
 #overlay {
