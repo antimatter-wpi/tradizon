@@ -1,0 +1,24 @@
+extends layout
+
+block content
+	div#box-wrapper
+		h1 Sign Up
+		hr
+		form(role="form" action="/user/new", method="POST")
+			div.form-group
+				label(for="email") Email
+				input.form-control(type="email", name="email", placeholder="Enter email" autocomplete=false required)
+			div.form-group
+				label(for="password") Password
+				input.form-control(type="password", name="password", placeholder="Password" autocomplete=false required)
+			div.form-group
+				label(for="password") Confirm Password
+				input.form-control(type="password", name="password", placeholder="Confirm Password" autocomplete=false required)
+			div.form-group
+				label(for="address") Address
+				input.form-control(type="text", name="address", placeholder="Address" autocomplete=false)
+			div.form-group
+				label(for="phone") Phone Number
+				input.form-control(type="text", name="phone", placeholder="Phone Number" autocomplete=false)
+
+			button.btn.btn-primary.center-block(type="submit") Sign Up
