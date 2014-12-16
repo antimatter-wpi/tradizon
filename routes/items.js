@@ -3,9 +3,19 @@ var router = express.Router();
 var items_controller = require('../controllers/items_controller.js'),
 	categories_controller = require('../controllers/categories_controller.js');
 
-/*
+/* 
+ * =====================================
+ * ==== NOTE
+ * =====================================
  * All route are prepended with /items/
+ * The order of the routes is important
+ * =====================================
  */
+
+/*
+ * GET all items
+ */
+router.get('/', items_controller.index);
 
 /*
  * GET a form for adding a new item

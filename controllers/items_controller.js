@@ -1,6 +1,16 @@
 var models = require('../models');
 
 /*
+ * Sends back all items
+ */
+exports.index = function(req, res) {
+	models.Item.findAll()
+	.then(function(items) {
+		res.send(items);
+	});
+}
+
+/*
  * Render a form for adding a new item
  */
 exports.new = function(req, res) {
