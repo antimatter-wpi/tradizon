@@ -9,6 +9,7 @@ var models = require('./models');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var items = require('./routes/items');
+var categories = require('./routes/categories');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/items', items);
+app.use('/categories', categories);
 app.use(function(req, res, next) {
     // Gets user_id from cookies
     var userIdFromCookie = req.cookies.user_id;

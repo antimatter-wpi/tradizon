@@ -5,4 +5,6 @@ var express = require('express'),
 /*
  * GET all categories as array of category and number of items
  */
-router.get('/categories_stats', categories_controller.getItemsStats);
+router.get('/stats', categories_controller.getStats);
+
+module.exports = router;
