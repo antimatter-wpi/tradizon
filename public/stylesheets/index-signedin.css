@@ -12,6 +12,12 @@ div#banner {
     right: 30px;
 }
 
+button#delete-item {
+    display: none;
+    position: absolute;
+    top: 10px;
+}
+
 #user-items {
     margin-bottom: 30px;
     height: 230px;

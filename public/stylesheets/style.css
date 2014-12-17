@@ -46,6 +46,7 @@ form a {
   margin: 10px 5px;
   padding: 10px;
   cursor: pointer;
+  position: relative;
 }
 
 .item-box:hover .overlay{
