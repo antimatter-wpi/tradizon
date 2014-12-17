@@ -20,6 +20,15 @@ function openAddNewItem() {
     )
 }
 
+function setupItemsView() {
+    $('#user-items').hover(
+        function() {
+            $('#delete-item').show();
+    }, function() {
+        $('#delete-item').hide();
+    });
+}
+
 function closeAddNewItem() {
     $('#new-item-box').fadeOut('fast');
     $('#overlay').hide();
@@ -76,4 +85,5 @@ function selectCategory(categoryId) {
 $(function() {
     loadCategories();
     loadOwnItem();
+    setupItemsView();
 });
