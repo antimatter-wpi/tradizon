@@ -11,7 +11,7 @@ exports.index = function(req, res) {
         .then(function(user) {
             if (user) {
                 // Redirects to the index page for signed in user
-                res.render('index_signedin', {title: 'Welcome to Tradizon'});
+                res.render('index_signedin', {title: 'Welcome To Tradizon'});
             } else {
                 // Renders to the index page for guest
                 res.render('index', {title: "Welcome to Tradizon"});

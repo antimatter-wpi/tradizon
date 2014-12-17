@@ -25,13 +25,17 @@
             });
 
         var setup = function(data) {
+
             var html = '<ul>';
 
-            $.each(data.items, function() {
-                html += '<li><img src="' + this.src + '" alt="' + this.title + '"></li>';
+            $(data).each(function() {
+                html += '<li>';
+                html += this.outerHTML;
+                html += '</li>';
             });
 
             html += '</ul>';
+            console.log(data);
 
             // Append items
             jcarousel
@@ -42,6 +46,6 @@
                 .jcarousel('reload');
         };
 
-        $.getJSON('data.json', setup);
+        $.get('/items/', setup);
     });
 })(jQuery);

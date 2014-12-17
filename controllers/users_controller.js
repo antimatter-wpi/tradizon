@@ -1,6 +1,5 @@
 var models = require('../models'),
-	crypto = require('crypto'),
-	shasum = crypto.createHash('sha1');
+	crypto = require('crypto');
 
 /*
  * Renders a page that shows all users
@@ -29,6 +28,7 @@ exports.show = function(req, res) {
  * Creates new user
  */
 exports.create = function(req, res) {
+	var shasum = crypto.createHash('sha1');
 	// Calculates the digest of given password
 	var passwordDigest = shasum
 						.update(req.param('password'))

@@ -8,7 +8,7 @@ var path = require('path');
 exports.index = function(req, res) {
 	models.Item.findAll()
 	.then(function(items) {
-		res.send(items);
+		res.render('items', {items: items});
 	});
 };
 
