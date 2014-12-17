@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         Item.belongsTo(models.User, { as: 'Owner' });
         Item.belongsTo(models.User, { as: 'Tradee' });
-        Item.belongsTo(models.Category);
+        // Item.belongsTo(models.Category);
       }
     }
   });
