@@ -85,7 +85,15 @@ function selectCategory(categoryId) {
 /*
  * Shows items pie chart
  */
-function showItemPieChart() {
+function toggleItemPieChart() {
+    // Toggle chart and button text
+    if ($('#items-pie-chart').children().length) {
+        $('#items-pie-chart').children().remove();
+        $('#show-items-pie-chart').text("Show Tradizon Statistics");
+        return;
+    }
+
+    // Shows graph
     $.getJSON('/categories/stats', function(data) {
         $('#items-pie-chart').highcharts({
             chart: {
@@ -119,6 +127,9 @@ function showItemPieChart() {
             }]
         });
     });
+
+    // Changes text on button
+    $('#show-items-pie-chart').text("Hide Tradizon Statistics");
 }
 
 $(function() {
