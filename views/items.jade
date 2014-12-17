@@ -2,5 +2,5 @@ each data in items
    div.item-box(data-item-id=data.id, onclick='showDetail(' + data.id + ')')
          img(src= data.photo width='200px' height='150px')
          p= data.title
-         button.btn.btn-danger#delete-item(onclick="deleteItem(" + data.id + ")") DELETE
          #overlay-box.overlay
+         button.btn.btn-danger#delete-item(onclick="deleteItem(" + data.id + ")") DELETE
