@@ -55,8 +55,11 @@ exports.create = function(req, res) {
  */
 exports.show = function(req, res) {
 	models.Item.find(req.params.id)
-		.then(function(data) {
-			res.render('items', {items: [data]});
+		.then(function(item) {
+			models.User.find(item.OwnerId)
+				.then(function(owner) {
+				res.render('view_item', {item: item, owner: owner});
+			})
 		})
 };
 

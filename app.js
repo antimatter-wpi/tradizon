@@ -26,21 +26,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/items', items);
-app.use(function(req, res, next) {
-    // Gets user_id from cookies
-    var userIdFromCookie = req.cookies.user_id;
-
-    models.User.find(userIdFromCookie)
-        .then(function(user) {
-            if (user) {
-                // If signed in, pass this authentication gate
-                next();
-            } else {
-                // Renders sign in form for new user
-                res.render('signin', {title: 'Sign In | Tradizon'});
-            }
-        });
-});
 app.use('/users', users);
 
 

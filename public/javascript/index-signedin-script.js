@@ -6,7 +6,6 @@ function openAddNewItem() {
     $.get('/items/new', function (data) {
             $('#new-item-box').html(data).fadeIn('fast');
             $('#overlay').show();
-            console.log("User id: " + $.cookies);
             $('#ownerid').attr('value', $.cookie('user_id'));
             $('#add-form').submit(function(e) {
                 addNewItem(new FormData($(this)[0]), function() {
@@ -27,7 +26,6 @@ function closeAddNewItem() {
 
 function loadOwnItem() {
     getOwnedItems(function(html) {
-        console.log(html);
         $('#user-items').html(html);
     });
 }
@@ -48,7 +46,7 @@ function loadItemsByActiveCategory() {
 
 function selectCategory(categoryId) {
     $('#categories ul li').removeClass('active');
-    $('li#category-'+categoryId).addClass('active');
+    $('li#category-' + categoryId).addClass('active');
     loadItemsByActiveCategory()
 }
 

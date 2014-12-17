@@ -1,5 +1,5 @@
 each data in items
-   div.item-box(onclick='showDetail(' + data.id + ')')
-         img(src= data.photo width='200px' height='150px')
+   div.item-box.text-center(onclick='showDetail(' + data.id + ')')
+         img.item-image.center-block(src= data.photo)
          p= data.title
          #overlay-box.overlay

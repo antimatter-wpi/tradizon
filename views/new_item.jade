@@ -18,4 +18,4 @@ form#add-form
         textarea.form-control(name="description" rows="8" cols="35" autocomplete="off")
     input#ownerid(type="hidden" name="ownerid")
     button.btn.btn-primary(type="submit" style="float:right") Add Item
-    button.btn.btn-danger(type="button" style="float:right" onclick="closeAddNewItem()") Cancel
+    button.cancel.btn.btn-danger.btn-xs.glyphicon.glyphicon-remove(type="button" style="float:right" onclick="closeAddNewItem()")

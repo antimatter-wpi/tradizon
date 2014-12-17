@@ -48,3 +48,14 @@ function getOwnedItems(callback) {
     });
 }
 
+function showDetail(itemId) {
+    getAnItem(itemId, function(html) {
+        $('#view-item').html(html).fadeIn('fast');
+        $('#overlay').show();
+    });
+}
+
+function closeDetail() {
+    $('#view-item').fadeOut('fast');
+    $('#overlay').hide();
+}
