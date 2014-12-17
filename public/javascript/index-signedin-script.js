@@ -82,6 +82,45 @@ function selectCategory(categoryId) {
     loadItemsByActiveCategory()
 }
 
+/*
+ * Shows items pie chart
+ */
+function showItemPieChart() {
+    $.getJSON('/categories/stats', function(data) {
+        $('#items-pie-chart').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 1,
+                plotShadow: false
+            },
+            title: {
+                text: 'Item trading on Tradizon'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOption: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Items',
+                data: data
+            }]
+        });
+    });
+}
+
 $(function() {
     loadCategories();
     loadOwnItem();
