@@ -1,7 +1,6 @@
 each data in items
-
-   div.item-box.text-center(onclick='showDetail(' + data.id + ')')
+   div.item-box.text-center(data-item-id=data.id, onclick='showDetail(' + data.id + ')')
          img.item-image.center-block(src= data.photo)
          p= data.title
          #overlay-box.overlay
-         button.btn.btn-danger#delete-item(onclick="deleteItem(" + data.id + ")") DELETE
+         button.btn.btn-danger.glyphicon.glyphicon-remove#delete-item(onclick="deleteItem(event, " + data.id + ")")

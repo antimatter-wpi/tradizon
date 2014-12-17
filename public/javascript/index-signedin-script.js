@@ -20,14 +20,15 @@ function openAddNewItem() {
 }
 
 function setupItemsView() {
-    $('#user-items').hover(
+    $('#user-items')
+        .mouseenter(
         function() {
-            if ($('#user-items #delete-item').is(':hidden')) {
-                $('#user-items #delete-item').show();
-            } else {
-                $('#user-items #delete-item').hide();
-            }
-    });
+            $('#user-items #delete-item').show();
+        })
+        .mouseleave(
+        function() {
+            $('#user-items #delete-item').hide();
+        });
 }
 
 function closeAddNewItem() {
@@ -45,7 +46,7 @@ function loadOwnItem() {
  * Deletes an item from the database and
  * removes it from the site dynamically
  */
-function deleteItem(itemId) {
+function deleteItem(e, itemId) {
     $.ajax({
         type: 'DELETE',
         url: '/items/' + itemId,
@@ -53,6 +54,7 @@ function deleteItem(itemId) {
             removeItemFromPage(itemId);
         }
     });
+    e.stopPropagation();
 }
 
 /*
