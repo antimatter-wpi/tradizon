@@ -77,13 +77,12 @@ exports.showByCategory = function(req, res) {
  */
 exports.destroy = function(req, res) {
 	// Finds the item that needs to be deleted
-	model.Item.find(req.params.id)
+	models.Item.find(req.params.id)
 	.then(function(item) {
-
 		// Deletes that item from the database
 		item.destroy()
 		.then(function() {
-			res.end();
+			res.send();
 		})
 	});
 };
