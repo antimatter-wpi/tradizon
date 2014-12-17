@@ -1,8 +1,9 @@
 body {
-  padding-top: 30px;
+  padding-top: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   overflow: auto;
   position: relative;
+  padding-bottom: 20px;
 }
 
 #box-wrapper {
@@ -10,6 +11,7 @@ body {
   margin: auto;
   border: 1px solid #C2C7D0;
   padding: 30px;
+
 }
 
 #main-wrapper {

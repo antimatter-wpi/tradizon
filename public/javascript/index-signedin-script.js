@@ -104,7 +104,7 @@ function toggleItemPieChart() {
                 plotShadow: false
             },
             title: {
-                text: 'Item trading on Tradizon'
+                text: 'Items Trading On Tradizon'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -122,6 +122,7 @@ function toggleItemPieChart() {
                     }
                 }
             },
+            credits: {enabled: false},
             series: [{
                 type: 'pie',
                 name: 'Items',

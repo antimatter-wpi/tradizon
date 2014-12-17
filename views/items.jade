@@ -3,4 +3,5 @@ each data in items
          img.item-image.center-block(src= data.photo)
          p= data.title
          #overlay-box.overlay
-         button.btn.btn-danger.glyphicon.glyphicon-remove#delete-item(onclick="deleteItem(event, " + data.id + ")")
+         if items.removable
+            button.btn.btn-danger.glyphicon.glyphicon-remove#delete-item(onclick="deleteItem(event, " + data.id + ")")

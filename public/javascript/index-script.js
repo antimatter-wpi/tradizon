@@ -29,7 +29,6 @@
             var html = '<ul>';
 
             $(data).each(function() {
-                console.log(this.outerHTML);
                 html += '<li>';
                 html += this.outerHTML;
                 html += '</li>';

@@ -59,6 +59,7 @@ exports.showOwnedItems = function(req, res) {
 		where: { OwnerId : req.params.id } 
 	})
 	.then(function(items) {
+		items.removable = true;
 		res.render('items', {items: items});
 	});
 };

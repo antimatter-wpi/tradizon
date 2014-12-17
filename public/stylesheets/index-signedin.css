@@ -69,3 +69,9 @@ h1#title {
     left: 25px;
     float: left;
 }
+
+#tradizon-info {
+    padding-top: 30px;
+    clear:both;
+    text-align: center;
+}

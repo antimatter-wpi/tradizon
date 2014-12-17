@@ -7,10 +7,11 @@ block head
   script(src='/javascript/index-script.js')
 block content
   #banner
-    h1#title Tradizon
+    #title
+      h1 Tradizon
+      p  Want to trade? Do it here!
     a#start_trading.btn.btn-primary.btn-lg(href="/signin") Start Trading
   #new_items
-    h1 New Items
     .jcarousel-wrapper
       .jcarousel
         .loading Loading new items
