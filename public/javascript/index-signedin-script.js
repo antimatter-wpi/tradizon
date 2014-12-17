@@ -4,30 +4,28 @@
 
 function openAddNewItem() {
     $.get('/items/new', function (data) {
-            $('#new-item-box').html(data).fadeIn('fast');
-            $('#overlay').show();
-            console.log("User id: " + $.cookies);
-            $('#ownerid').attr('value', $.cookie('user_id'));
-            $('#add-form').submit(function(e) {
-                addNewItem(new FormData($(this)[0]), function() {
-                    closeAddNewItem();
-                    loadItemsByActiveCategory();
-                    loadOwnItem();
-                });
-                e.preventDefault();
+        $('#new-item-box').html(data).fadeIn('fast');
+        $('#overlay').show();
+        console.log("User id: " + $.cookies);
+        $('#ownerid').attr('value', $.cookie('user_id'));
+        $('#add-form').submit(function(e) {
+            addNewItem(new FormData($(this)[0]), function() {
+                closeAddNewItem();
+                loadItemsByActiveCategory();
+                loadOwnItem();
             });
-        }
-    )
+            e.preventDefault();
+        });
+    });
 }
 
 function setupItemsView() {
-    $('#user-items').hover(
-        function() {
-            if ($('#user-items #delete-item').is(':hidden')) {
-                $('#user-items #delete-item').show();
-            } else {
-                $('#user-items #delete-item').hide();
-            }
+    $('#user-items').hover(function() {
+        if ($('#user-items #delete-item').is(':hidden')) {
+            $('#user-items #delete-item').show();
+        } else {
+            $('#user-items #delete-item').hide();
+        }
     });
 }
 
