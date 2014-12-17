@@ -32,6 +32,27 @@ function loadOwnItem() {
     });
 }
 
+/*
+ * Deletes an item from the database and
+ * removes it from the site dynamically
+ */
+function deleteItem(itemId) {
+    $.ajax({
+        type: 'DELETE',
+        url: '/items/' + itemId,
+        success: function() {
+            removeItemFromPage(itemId);
+        }
+    });
+}
+
+/*
+ * Deletes the all instances of an item from page
+ */
+function removeItemFromPage(itemId) {
+    $('div[data-item-id=' + itemId + ']').remove();
+}
+
 function loadCategories() {
     getAllCategories(function(html) {
         $('#categories').html(html);
