@@ -23,9 +23,11 @@ function openAddNewItem() {
 function setupItemsView() {
     $('#user-items').hover(
         function() {
-            $('#delete-item').show();
-    }, function() {
-        $('#delete-item').hide();
+            if ($('#user-items #delete-item').is(':hidden')) {
+                $('#user-items #delete-item').show();
+            } else {
+                $('#user-items #delete-item').hide();
+            }
     });
 }
 
