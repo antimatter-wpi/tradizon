@@ -73,7 +73,6 @@ exports.showByCategory = function(req, res) {
 	.then(function(data) {
 		res.render('items', {items: data});
 	});
-
 };
 
 /*
@@ -81,15 +80,12 @@ exports.showByCategory = function(req, res) {
  */
 exports.destroy = function(req, res) {
 	// Finds the item that needs to be deleted
-	model.Item.find(req.params.id)
+	models.Item.find(req.params.id)
 	.then(function(item) {
-
 		// Deletes that item from the database
 		item.destroy()
 		.then(function() {
-			// TODO do something after delete the item here
+			res.send();
 		})
 	});
 };
-
-

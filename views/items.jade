@@ -1,5 +1,7 @@
 each data in items
+
    div.item-box.text-center(onclick='showDetail(' + data.id + ')')
          img.item-image.center-block(src= data.photo)
          p= data.title
          #overlay-box.overlay
+         button.btn.btn-danger#delete-item(onclick="deleteItem(" + data.id + ")") DELETE
