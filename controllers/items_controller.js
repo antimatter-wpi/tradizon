@@ -70,7 +70,6 @@ exports.showByCategory = function(req, res) {
 	.then(function(data) {
 		res.render('items', {items: data});
 	});
-
 };
 
 /*
@@ -84,9 +83,7 @@ exports.destroy = function(req, res) {
 		// Deletes that item from the database
 		item.destroy()
 		.then(function() {
-			// TODO do something after delete the item here
+			res.end();
 		})
 	});
 };
-
-
