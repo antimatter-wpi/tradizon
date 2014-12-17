@@ -59,3 +59,20 @@ exports.destroy = function(req, res) {
 		})
 	})
 };
+
+/*
+ * Returns all the categories with their number of items
+ */
+exports.getStats = function(req, res) {
+	models.Category.findAll({ include: [ models.Item ] })
+	.then(function(categories) {
+		var stats = [];
+
+		// Converts data into propery form
+		for (var index in categories) {
+			stats[index] = [categories[index].name, categories[index].Items.length];
+		}
+
+		res.json(stats);
+	});
+}
