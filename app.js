@@ -25,26 +25,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// ====================================
+// ==== Router
+// ====================================
 app.use('/', routes);
 app.use('/items', items);
 app.use('/categories', categories);
-app.use(function(req, res, next) {
-    // Gets user_id from cookies
-    var userIdFromCookie = req.cookies.user_id;
-
-    models.User.find(userIdFromCookie)
-        .then(function(user) {
-            if (user) {
-                // If signed in, pass this authentication gate
-                next();
-            } else {
-                // Renders sign in form for new user
-                res.render('signin', {title: 'Sign In | Tradizon'});
-            }
-        });
-});
 app.use('/users', users);
-
 
 
 // catch 404 and forward to error handler

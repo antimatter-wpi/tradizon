@@ -1,6 +1,7 @@
 var models = require('../models');
 var formidable = require('formidable');
 var path = require('path');
+var fs = require('fs');
 
 /*
  * Sends back all items
@@ -55,8 +56,11 @@ exports.create = function(req, res) {
  */
 exports.show = function(req, res) {
 	models.Item.find(req.params.id)
-		.then(function(data) {
-			res.render('items', {items: [data]});
+		.then(function(item) {
+			models.User.find(item.OwnerId)
+				.then(function(owner) {
+				res.render('view_item', {item: item, owner: owner});
+			})
 		})
 };
 
@@ -78,11 +82,14 @@ exports.showByCategory = function(req, res) {
 exports.destroy = function(req, res) {
 	// Finds the item that needs to be deleted
 	models.Item.find(req.params.id)
-	.then(function(item) {
-		// Deletes that item from the database
-		item.destroy()
-		.then(function() {
-			res.send();
-		})
+		.then(function(item) {
+			// Deletes image associated with the item
+			fs.unlink(__dirname + '/../public/' + item.photo, function() {
+				// Deletes that item from the database
+				item.destroy()
+					.then(function() {
+						res.send();
+					})
+			});
 	});
 };

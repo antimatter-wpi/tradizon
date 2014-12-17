@@ -20,13 +20,15 @@ function openAddNewItem() {
 }
 
 function setupItemsView() {
-    $('#user-items').hover(function() {
-        if ($('#user-items #delete-item').is(':hidden')) {
+    $('#user-items')
+        .mouseenter(
+        function() {
             $('#user-items #delete-item').show();
-        } else {
+        })
+        .mouseleave(
+        function() {
             $('#user-items #delete-item').hide();
-        }
-    });
+        });
 }
 
 function closeAddNewItem() {
@@ -36,7 +38,6 @@ function closeAddNewItem() {
 
 function loadOwnItem() {
     getOwnedItems(function(html) {
-        console.log(html);
         $('#user-items').html(html);
     });
 }
@@ -45,7 +46,7 @@ function loadOwnItem() {
  * Deletes an item from the database and
  * removes it from the site dynamically
  */
-function deleteItem(itemId) {
+function deleteItem(e, itemId) {
     $.ajax({
         type: 'DELETE',
         url: '/items/' + itemId,
@@ -53,6 +54,7 @@ function deleteItem(itemId) {
             removeItemFromPage(itemId);
         }
     });
+    e.stopPropagation();
 }
 
 /*
@@ -78,7 +80,7 @@ function loadItemsByActiveCategory() {
 
 function selectCategory(categoryId) {
     $('#categories ul li').removeClass('active');
-    $('li#category-'+categoryId).addClass('active');
+    $('li#category-' + categoryId).addClass('active');
     loadItemsByActiveCategory()
 }
 

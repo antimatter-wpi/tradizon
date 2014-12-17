@@ -2,14 +2,17 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap-theme.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
     script(type='text/javascript' src='/javascript/jquery-2.1.1.min.js')
     script(type='text/javascript' src='/javascript/jquery.cookie.js')    
     script(type='text/javascript' src='/javascript/highcharts.js')
+    script(src='/javascript/items-client.js')
     block head
   body
+    #view-item
+    #overlay
     #main-wrapper
       block content
 
