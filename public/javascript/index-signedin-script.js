@@ -74,7 +74,10 @@ function loadCategories() {
 function loadItemsByActiveCategory() {
     var categoryId = $('li.active a').attr('name');
     getItemsByCategory(categoryId, function(html) {
-        $('#browse-item').html(html);
+        var browseItem = $('#browse-item');
+        browseItem.height(browseItem.outerHeight());
+        browseItem.html(html);
+        browseItem.height('auto');
     });
 }
 

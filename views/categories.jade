@@ -4,6 +4,6 @@
 ul.nav.nav-pills.nav-stacked
    each data, index in categories
       if !index
-         li.active(id='category-'+data.id): a(href='#' name= data.id onclick='selectCategory('+ data.id + ')')= data.name
+         li.active(id='category-'+data.id): a(href='javascript:void(0)' name= data.id onclick='selectCategory('+ data.id + ')')= data.name
       else
-         li(id='category-'+data.id): a(href='#' name= data.id onclick='selectCategory(' + data.id + ')')= data.name
+         li(id='category-'+data.id): a(href='javascript:void(0)' name= data.id onclick='selectCategory(' + data.id + ')')= data.name
