@@ -1,0 +1,20 @@
+#owner-info.info
+    h2: strong Owner Info
+    hr
+    h4: strong Email
+    p= owner.email
+    h4: strong Address
+    p= owner.address
+    h4: strong Phone Number
+    p= owner.phone
+    a#contact.btn.btn-primary(href='mailto:' + owner.email style="float:left; position:absolute; bottom: 30px") Contact
+
+#item-info
+    h2= item.title
+    hr
+    img(src= item.photo width='150px' alt=item.title style='float:left')
+    #description
+        h4: strong Description
+        p= item.description
+
+button.cancel.btn.btn-danger.btn-xs.glyphicon.glyphicon-remove(type="button" style="float:right" onclick="closeDetail()")

@@ -1,0 +1,9 @@
+//
+   Created by cuongnd on 12/16/14.
+
+ul.nav.nav-pills.nav-stacked
+   each data, index in categories
+      if !index
+         li.active(id='category-'+data.id): a(href='#' name= data.id onclick='selectCategory('+ data.id + ')')= data.name
+      else
+         li(id='category-'+data.id): a(href='#' name= data.id onclick='selectCategory(' + data.id + ')')= data.name

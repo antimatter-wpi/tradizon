@@ -1,0 +1,28 @@
+h1 All users
+
+form(action="/users/new", method="POST")
+	label(for="email") Email
+	input(type="text", name="email")
+
+	label(for="email") Phone number
+	input(type="text", name="phone")
+
+	label(for="email") Address
+	input(type="text", name="address")
+
+	label(for="password") Password
+	input(type="password", name="password")
+
+	input(type="submit")
+
+
+//
+	ul
+	each user in users
+		li
+			h2
+				= user.email
+			p
+				= user.phone
+			p
+				= user.address

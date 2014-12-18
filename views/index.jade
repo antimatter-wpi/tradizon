@@ -1,5 +1,19 @@
 extends layout
 
+block head
+  link(rel='stylesheet' href='/stylesheets/index.css')
+  link(rel='stylesheet' href='/stylesheets/jcarousel.css')
+  script(src='/javascript/jquery.jcarousel.min.js')
+  script(src='/javascript/index-script.js')
 block content
-  h1= title
-  p Welcome to #{title}
+  #banner
+    #title
+      h1 Tradizon
+      p  Want to trade? Do it here!
+    a#start_trading.btn.btn-primary.btn-lg(href="/signin") Start Trading
+  #new_items
+    .jcarousel-wrapper
+      .jcarousel
+        .loading Loading new items
+      a.jcarousel-control-prev(href='#') &lsaquo;
+      a.jcarousel-control-next(href='#') &rsaquo;

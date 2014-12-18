@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	#box-wrapper
+		h1 Sign In
+		hr
+		form(role="form" action="/signin", method="POST")
+			.form-group
+				label(for="email") Email
+				input.form-control(type="email", name="email", placeholder="Enter email")
+			.form-group
+				label(for="password") Password
+				input.form-control(type="password", name="password", placeholder="Password")
+			button.btn.btn-primary(type="submit") Sign In
+
+			a(href="/signup") New user? Sign up now

@@ -1,0 +1,26 @@
+extends layout
+block head
+    link(rel='stylesheet' href='/stylesheets/index-signedin.css')
+    script(src='/javascript/index-signedin-script.js')
+
+block content
+    #banner
+        h1#title Tradizon
+        #two-buttons
+            a#sign-out.btn.btn-danger(href='/signout') Sign Out
+            a#new-item.btn.btn-primary(type="button" onclick="openAddNewItem()") New Item
+    h2 My Items
+    hr
+    #user-items
+    h2 Browse Items
+    hr
+    #items-list
+        #categories
+        #browse-item
+    #new-item-box
+    #tradizon-info
+        h2 Tradizon Information
+        hr
+        button.btn.btn-success.text-center#show-items-pie-chart(onclick='toggleItemPieChart()') Show Tradizon Statistics
+        #items-pie-chart
+

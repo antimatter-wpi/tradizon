@@ -1,8 +1,120 @@
 body {
-  padding: 50px;
+  padding-top: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow: auto;
+  position: relative;
+  padding-bottom: 20px;
 }
 
-a {
-  color: #00B7FF;
+#box-wrapper {
+  width: 600px;
+  margin: 30px auto;
+  border: 1px solid #C2C7D0;
+  padding: 30px;
+
+}
+
+#main-wrapper {
+  width: 1000px;
+  margin: auto;
+  overflow: auto;
+}
+
+form a {
+  float: right;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.overlay {
+  position: absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  opacity:0;
+  background-color: white;
+  -webkit-transition: opacity .2s ease;
+  -moz-transition: opacity .2s ease;
+  z-index: 0;
+}
+
+#overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  bottom: 0;
+  right: 0;
+  opacity:0.6;
+  background-color: black;
+  display: none;
+  z-index: 999;
+}
+
+.item-box {
+  position: relative;
+  vertical-align: top;
+  display: inline-block;
+  width: 220px;
+  margin: 10px 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.item-image {
+  max-width: 200px;
+  height: 150px;
+  margin-bottom: 5px;
+}
+
+
+.cancel {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.item-box:hover .overlay{
+  opacity: 0.5;
+  color: black;
+
+}
+
+#view-item {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  background-color: #ffffff;
+  border: 1px solid #28a4c9;
+  margin: auto;
+  top: 50px;
+  right: 0;
+  left: 0;
+  width: 900px;
+  height: 510px;
+  padding: 0px;
+}
+
+#owner-info {
+  float: left;
+  width: 30%;
+  height: 100%;
+  border-right: 1px solid #28a4c9;
+  padding: 15px;
+}
+
+
+#item-info {
+  float: right;
+  width: 70%;
+  height: 100%;
+  padding: 15px;
+}
+
+#view-item #description {
+  margin-left: 10px;
+  float:left;
+  width: 65%;
 }

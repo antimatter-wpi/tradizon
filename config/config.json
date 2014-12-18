@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "hmngo",
+    "password": "hmngo_pw",
+    "database": "hmngo_db",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "tradizon_test",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  },
+  "production": {
+    "username": "hmngo",
+    "password": "hmngo_pw",
+    "database": "hmngo_db",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  }
+}
